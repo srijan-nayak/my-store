@@ -1,0 +1,10 @@
+h1 {
+  color: var(--primary-color);
+  font-family: "Sacramento", cursive;
+  font-size: 7.2rem;
+  font-weight: lighter;
+  text-align: center;
+  margin-top: 0.6em;
+  margin-bottom: 0.8em;
+  padding: 0 1rem;
+}
