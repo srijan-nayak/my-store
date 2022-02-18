@@ -1,3 +1,24 @@
+:root {
+  --primary-color: #0a939c;
+  --secondary-color: #6c6c6c;
+}
+
+@font-face {
+  font-family: "Sacramento";
+  src: url("assets/fonts/Sacramento-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("assets/fonts/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("assets/fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,15 +26,10 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 62.5%;
 }
 
-:root {
-  --primary-color: #0a939c;
-}
-
-@font-face {
-  font-family: Sacramento;
-  src: url("assets/fonts/Sacramento-Regular.ttf") format("truetype");
+body {
+  padding: 5.4rem;
 }
