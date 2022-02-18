@@ -4,7 +4,21 @@ h1 {
   font-size: 7.2rem;
   font-weight: lighter;
   text-align: center;
-  margin-top: 0.6em;
   margin-bottom: 0.8em;
-  padding: 0 1rem;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+@media (min-width: 577px) {
+  .container {
+    max-width: 469px;
+  }
+}
+
+@media (min-width: 830px) {
+  .container {
+    max-width: 720px;
+  }
 }
