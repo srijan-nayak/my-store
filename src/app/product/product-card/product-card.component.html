@@ -1,6 +1,6 @@
 <img [src]="product.url" [alt]="product.name" />
 <div class="product-details">
-  <a href="/products/{{ product.id }}" class="product-details__name">{{
+  <a routerLink="/products/{{ product.id }}" class="product-details__name">{{
     product.name
   }}</a>
   <span class="product-details__price">{{ product.price | currency }}</span>
