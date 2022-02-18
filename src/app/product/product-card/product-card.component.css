@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  width: 21.8rem;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-details {
+  font-weight: bold;
+  padding: 1rem 2rem;
+}
+
+.product-details__name {
+  display: block;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 0.3em;
+  text-decoration: none;
+}
+
+.product-details__name:hover {
+  text-decoration: underline;
+}
+
+.product-details__price {
+  color: var(--secondary-color);
+  font-size: 1.4rem;
+}
