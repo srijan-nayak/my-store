@@ -1,0 +1,19 @@
+:host {
+  margin: 0 auto;
+  display: grid;
+  row-gap: 4.2rem;
+  justify-content: center;
+}
+
+@media (min-width: 577px) {
+  :host {
+    grid-template-columns: repeat(2, min-content);
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 830px) {
+  :host {
+    grid-template-columns: repeat(3, min-content);
+  }
+}
