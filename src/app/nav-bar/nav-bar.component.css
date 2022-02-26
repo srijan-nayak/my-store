@@ -13,7 +13,7 @@ a {
   font-size: 2.4rem;
   font-weight: bold;
   text-decoration: none;
-  transition: padding 50ms linear, background-color 50ms linear;
+  transition: padding 200ms linear, background-color 200ms linear;
 }
 
 a:hover {

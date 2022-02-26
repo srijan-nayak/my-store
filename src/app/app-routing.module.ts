@@ -4,7 +4,11 @@ import { ProductsListComponent } from './product/products-list/products-list.com
 
 const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
-  { path: 'products', component: ProductsListComponent },
+  {
+    path: 'products',
+    component: ProductsListComponent,
+    data: { animation: 'ProductsPage' },
+  },
 ];
 
 @NgModule({
