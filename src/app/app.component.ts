@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ChildrenOutletContexts } from '@angular/router';
-import { routeAnimations } from './animations';
+import { routeAnimations } from '../animations/routeAnimations';
 
 @Component({
   selector: 'app-root',
