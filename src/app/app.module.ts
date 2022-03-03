@@ -6,16 +6,21 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductModule } from './product/product.module';
+import { ProductsListComponent } from './product/products-list/products-list.component';
+import { ProductCardComponent } from './product/product-card/product-card.component';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent],
+  declarations: [
+    AppComponent,
+    NavBarComponent,
+    ProductsListComponent,
+    ProductCardComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ProductModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
