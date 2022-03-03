@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { first, map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 export interface Product {
@@ -18,5 +18,12 @@ export class ProductService {
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('assets/data.json');
+  }
+
+  getProduct(id: number): Observable<Product | undefined> {
+    return this.getProducts().pipe(
+      map((products) => products.find((product) => product.id === id)),
+      first()
+    );
   }
 }
