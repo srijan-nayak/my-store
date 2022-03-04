@@ -6,7 +6,6 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductsListComponent,
-    data: { animation: 'ProductsPage' },
   },
   { path: '', redirectTo: 'products', pathMatch: 'full' },
 ];
