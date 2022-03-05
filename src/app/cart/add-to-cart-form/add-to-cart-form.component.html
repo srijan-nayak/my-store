@@ -1,0 +1,25 @@
+<form (ngSubmit)="onSubmit()" #addCartItemForm="ngForm">
+  <div class="form-group">
+    <label for="quantity">Quantity: </label>
+    <input
+      type="number"
+      id="quantity"
+      name="quantity"
+      [(ngModel)]="quantity"
+      (ngModelChange)="isCartItemAdded = false"
+      required
+      min="1"
+      #itemQuantity="ngModel"
+    />
+  </div>
+  <p
+    class="message--invalid"
+    [hidden]="itemQuantity.valid || itemQuantity.pristine"
+  >
+    Quantity should be greater than or equal to 1
+  </p>
+  <button type="submit" [disabled]="itemQuantity.invalid && itemQuantity.dirty">
+    Add to cart
+  </button>
+  <p class="message--success" *ngIf="isCartItemAdded">Item placed in cart!</p>
+</form>
