@@ -13,15 +13,16 @@ declare const require: {
     deep?: boolean,
     filter?: RegExp
   ): {
-    <T>(id: string): T;
     keys(): string[];
+    <T>(id: string): T;
   };
 };
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting()
+  platformBrowserDynamicTesting(),
+  { teardown: { destroyAfterEach: true } }
 );
 
 // Then we find all the tests.
