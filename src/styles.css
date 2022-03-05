@@ -1,7 +1,10 @@
 :root {
   --primary-color: #0a939c;
-  --primary-background-color: #e4feff;
+  --primary-background-color: #d2f2f3;
   --secondary-color: #6c6c6c;
+  --border-radius: 6px;
+  --shadow-medium: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 @font-face {
