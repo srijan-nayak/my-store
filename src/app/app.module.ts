@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ProductsListComponent } from './product/products-list/products-list.component';
 import { ProductCardComponent } from './product/product-card/product-card.component';
+import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { AddToCartFormComponent } from './cart/add-to-cart-form/add-to-cart-form.component';
 import { FormsModule } from '@angular/forms';
 
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     NavBarComponent,
     ProductsListComponent,
     ProductCardComponent,
+    ProductDetailsComponent,
     AddToCartFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],

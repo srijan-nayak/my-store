@@ -1,0 +1,21 @@
+<ng-container *ngIf="product; else elseBlock">
+  <img [src]="product.url" [alt]="product.name" />
+
+  <section class="details">
+    <div class="details__header">
+      <h2>{{ product.name }}</h2>
+      <p>{{ product.price | currency }}</p>
+    </div>
+
+    <app-add-to-cart-form [product]="product"></app-add-to-cart-form>
+
+    <div class="details__description">
+      <h3>Description</h3>
+      <p>{{ product.description }}</p>
+    </div>
+  </section>
+</ng-container>
+
+<ng-template #elseBlock>
+  <h2>Product not found!</h2>
+</ng-template>
