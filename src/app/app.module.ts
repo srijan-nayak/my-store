@@ -5,11 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { ProductsListComponent } from './product/products-list/products-list.component';
-import { ProductCardComponent } from './product/product-card/product-card.component';
-import { ProductDetailsComponent } from './product/product-details/product-details.component';
-import { AddToCartFormComponent } from './cart/add-to-cart-form/add-to-cart-form.component';
+import { ProductsListComponent } from './products-list/products-list.component';
+import { ProductCardComponent } from './products-list/product-card/product-card.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { AddToCartFormComponent } from './product-details/add-to-cart-form/add-to-cart-form.component';
 import { FormsModule } from '@angular/forms';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     ProductCardComponent,
     ProductDetailsComponent,
     AddToCartFormComponent,
+    CartComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
