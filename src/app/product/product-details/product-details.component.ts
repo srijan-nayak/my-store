@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductDetailsComponent implements OnInit, OnDestroy {
   product?: Product;
   productSubscription?: Subscription;
+  isProductFound = true;
 
   constructor(
     private productService: ProductService,
@@ -21,7 +22,10 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     const productId = +this.activatedRoute.snapshot.paramMap.get('id')!;
     this.productSubscription = this.productService
       .getProduct(productId)
-      .subscribe((product) => (this.product = product));
+      .subscribe((product) => {
+        this.product = product;
+        this.isProductFound = this.product !== undefined;
+      });
   }
 
   ngOnDestroy() {

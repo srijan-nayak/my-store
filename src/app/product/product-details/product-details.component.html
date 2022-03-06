@@ -1,4 +1,4 @@
-<ng-container *ngIf="product; else elseBlock">
+<ng-container *ngIf="product">
   <img [src]="product.url" [alt]="product.name" />
 
   <section class="details">
@@ -16,6 +16,6 @@
   </section>
 </ng-container>
 
-<ng-template #elseBlock>
+<ng-container *ngIf="!isProductFound">
   <h2>Product not found!</h2>
-</ng-template>
+</ng-container>
