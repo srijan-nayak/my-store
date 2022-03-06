@@ -24,3 +24,12 @@ a.active {
   padding: 0.3em 0.5em;
   border-radius: var(--border-radius);
 }
+
+.cart-count {
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
+  color: white;
+  font-size: 2.4rem;
+  padding: 0.2rem 0.5rem;
+  margin-left: 0.5rem;
+}
