@@ -28,8 +28,8 @@ input {
 
 input:active,
 input:focus {
-  border: none;
-  outline: 2px solid var(--primary-color);
+  outline: none;
+  border-color: var(--primary-color);
 }
 
 .message--invalid {
@@ -39,6 +39,15 @@ input:focus {
   font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+
+.message--success {
+  background-color: #d2efcf;
+  border-radius: var(--border-radius);
+  color: var(--success-color);
+  font-size: 1.4rem;
+  font-weight: bold;
   padding: 1rem;
 }
 
@@ -65,13 +74,4 @@ button[disabled],
 button[disabled]:hover {
   background-color: var(--secondary-color);
   cursor: default;
-}
-
-p.message--success {
-  background-color: #d2efcf;
-  border-radius: var(--border-radius);
-  color: var(--success-color);
-  font-size: 1.4rem;
-  font-weight: bold;
-  padding: 1rem;
 }
