@@ -1,0 +1,16 @@
+<ng-container *ngIf="name && total; else elseBlock">
+  <h2>Success!</h2>
+
+  <p>
+    Thank you, <strong>{{ name }}</strong
+    >!
+  </p>
+
+  <p>
+    Your <strong>{{ total | currency }}</strong> order is confirmed!
+  </p>
+</ng-container>
+
+<ng-template #elseBlock>
+  <h2 class="no-order-error-message">No order placed!</h2>
+</ng-template>

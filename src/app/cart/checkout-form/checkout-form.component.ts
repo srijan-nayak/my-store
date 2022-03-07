@@ -17,7 +17,10 @@ export class CheckoutFormComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void {
-    this.cartService.clearCart();
-    this.router.navigateByUrl('/order-placed');
+    this.router
+      .navigateByUrl('/order-placed', {
+        state: { name: this.name, total: this.cartService.totalAmount },
+      })
+      .then(() => this.cartService.clearCart());
   }
 }
