@@ -40,4 +40,8 @@ export class CartService {
       (cartItem) => cartItem.product.id !== productId
     );
   }
+
+  clearCart(): void {
+    this._cartItems = [];
+  }
 }
