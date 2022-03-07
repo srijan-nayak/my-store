@@ -18,7 +18,7 @@ export class AddToCartFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.product) {
-      this.cartService.addCartItem(this.product, this.quantity);
+      this.cartService.updateCart(this.product, this.quantity);
       this.isCartItemAdded = true;
     }
   }

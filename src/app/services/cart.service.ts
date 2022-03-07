@@ -18,12 +18,12 @@ export class CartService {
     return this._cartItems;
   }
 
-  addCartItem(product: Product, quantity: number): void {
+  updateCart(product: Product, quantity: number): void {
     const foundProduct = this._cartItems.find(
       (cartItem) => cartItem.product.id === product.id
     );
     if (foundProduct) {
-      foundProduct.quantity += quantity;
+      foundProduct.quantity = quantity;
     } else {
       this._cartItems.push({ product, quantity });
     }
