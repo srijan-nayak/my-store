@@ -1,0 +1,20 @@
+<ng-container *ngIf="!isCartEmpty; else elseBlock">
+  <section class="cart">
+    <ul>
+      <li *ngFor="let cartItem of cartItems">
+        <app-cart-item [cartItem]="cartItem"></app-cart-item>
+      </li>
+    </ul>
+
+    <span class="cart-total">
+      Total:
+      <span class="cart-total-val">{{ cartTotal | currency }}</span>
+    </span>
+  </section>
+
+  <app-checkout-form></app-checkout-form>
+</ng-container>
+
+<ng-template #elseBlock>
+  <h2 class="empty-cart-message">Your cart is empty!</h2>
+</ng-template>
