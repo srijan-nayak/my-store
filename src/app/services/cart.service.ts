@@ -28,4 +28,10 @@ export class CartService {
       this._cartItems.push({ product, quantity });
     }
   }
+
+  removeCartItem(productId: number): void {
+    this._cartItems = this._cartItems.filter(
+      (cartItem) => cartItem.product.id !== productId
+    );
+  }
 }
