@@ -11,6 +11,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { AddToCartFormComponent } from './product-details/add-to-cart-form/add-to-cart-form.component';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { CartItemFormComponent } from './cart/cart-item/cart-item-form/cart-item-form.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { CartComponent } from './cart/cart.component';
     ProductDetailsComponent,
     AddToCartFormComponent,
     CartComponent,
+    CartItemComponent,
+    CartItemFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

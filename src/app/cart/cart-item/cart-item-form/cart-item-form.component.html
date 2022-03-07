@@ -1,0 +1,24 @@
+<form>
+  <div class="form-group">
+    <label for="quantity-{{ cartItem!.product.id }}}">Quantity: </label>
+    <select
+      name="quantity"
+      id="quantity-{{ cartItem!.product.id }}"
+      [(ngModel)]="quantity"
+      (ngModelChange)="onQuantityChange()"
+    >
+      <option *ngFor="let value of selectOptionValues" [value]="value">
+        {{ value }}
+      </option>
+    </select>
+  </div>
+
+  <button
+    type="button"
+    title="Delete cart item"
+    class="material-icons delete-icon"
+    (click)="onDeleteClick()"
+  >
+    delete
+  </button>
+</form>

@@ -1,0 +1,18 @@
+<ng-container *ngIf="cartItem">
+  <img [src]="cartItem.product.url" [alt]="cartItem.product.name" />
+
+  <div class="details">
+    <div class="product-details">
+      <a
+        routerLink="/products/{{ cartItem.product.id }}"
+        class="product-details__name"
+        >{{ cartItem.product.name }}</a
+      >
+      <span class="product-details__price">{{
+        cartItem.product.price | currency
+      }}</span>
+    </div>
+
+    <app-cart-item-form [cartItem]="cartItem"></app-cart-item-form>
+  </div>
+</ng-container>
