@@ -40,6 +40,11 @@ app-add-to-cart-form {
   font-size: 1.8rem;
 }
 
+.not-fount-error-message {
+  color: var(--invalid-color);
+  font-size: 2.4rem;
+}
+
 @media (min-width: 768px) {
   :host {
     display: flex;
