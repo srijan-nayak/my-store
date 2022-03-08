@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { CartService } from '../../services/cart.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-checkout-form',
@@ -8,19 +6,16 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./checkout-form.component.css'],
 })
 export class CheckoutFormComponent implements OnInit {
-  name: string = '';
+  @Output() onCheckoutFormSubmit = new EventEmitter<string>();
+  userName: string = '';
   cardNumber: string = '';
   address: string = '';
 
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
   onSubmit(): void {
-    this.router
-      .navigateByUrl('/order-placed', {
-        state: { name: this.name, total: this.cartService.totalAmount },
-      })
-      .then(() => this.cartService.clearCart());
+    this.onCheckoutFormSubmit.emit(this.userName);
   }
 }

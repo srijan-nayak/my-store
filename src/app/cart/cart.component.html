@@ -24,7 +24,9 @@
     </span>
   </section>
 
-  <app-checkout-form></app-checkout-form>
+  <app-checkout-form
+    (onCheckoutFormSubmit)="checkout($event)"
+  ></app-checkout-form>
 </ng-container>
 
 <ng-template #elseBlock>

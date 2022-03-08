@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItem, CartService } from '../services/cart.service';
 import { Product } from '../services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,7 @@ import { Product } from '../services/product.service';
 export class CartComponent implements OnInit {
   message?: string;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -34,5 +35,13 @@ export class CartComponent implements OnInit {
   removeCartItem(product: Product): void {
     this.cartService.removeCartItem(product.id);
     this.message = `${product.name} removed from cart!`;
+  }
+
+  checkout(userName: string): void {
+    this.router
+      .navigateByUrl('/order-placed', {
+        state: { name: userName, total: this.cartService.totalAmount },
+      })
+      .then(() => this.cartService.clearCart());
   }
 }
