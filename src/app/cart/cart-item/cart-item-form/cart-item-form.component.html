@@ -1,9 +1,9 @@
 <form>
   <div class="form-group">
-    <label for="quantity-{{ cartItem!.product.id }}}">Quantity: </label>
+    <label for="quantity{{ index ? '-' + index : '' }}">Quantity: </label>
     <select
       name="quantity"
-      id="quantity-{{ cartItem!.product.id }}"
+      id="quantity{{ index ? '-' + index : '' }}"
       [(ngModel)]="quantity"
       (ngModelChange)="onQuantityChange()"
     >

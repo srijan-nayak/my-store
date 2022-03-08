@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CartItem, CartService } from '../../../services/cart.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cart-item-form',
@@ -7,32 +6,24 @@ import { CartItem, CartService } from '../../../services/cart.service';
   styleUrls: ['./cart-item-form.component.css'],
 })
 export class CartItemFormComponent implements OnInit {
-  @Input() cartItem?: CartItem;
+  @Input() index?: number;
+  @Input() quantity?: number | string;
+  @Output() onCartItemQuantityChange = new EventEmitter<number>();
+  @Output() onCartItemDelete = new EventEmitter<void>();
 
   readonly selectOptionValues: number[] = Array(10)
     .fill(0)
     .map((_, i) => i + 1);
 
-  constructor(private cartService: CartService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
-  get quantity(): number {
-    return this.cartItem!.quantity;
-  }
-
-  set quantity(newQuantity: number | string) {
-    this.cartItem!.quantity = +newQuantity;
-  }
-
   onQuantityChange(): void {
-    this.cartService.updateCart(
-      this.cartItem!.product,
-      this.cartItem!.quantity
-    );
+    this.onCartItemQuantityChange.emit(+this.quantity!);
   }
 
   onDeleteClick(): void {
-    this.cartService.removeCartItem(this.cartItem!.product.id);
+    this.onCartItemDelete.emit();
   }
 }

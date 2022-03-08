@@ -35,3 +35,17 @@ li:not(:last-child) {
   color: var(--invalid-color);
   font-size: 2.4rem;
 }
+.message--invalid {
+  display: block;
+  background-color: var(--invalid-background-color);
+  border-radius: var(--border-radius);
+  color: var(--invalid-color);
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  padding: 1rem;
+}
+
+.message--invalid:hover {
+  cursor: pointer;
+}

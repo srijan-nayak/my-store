@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CartItem } from '../../services/cart.service';
 
 @Component({
@@ -8,8 +8,18 @@ import { CartItem } from '../../services/cart.service';
 })
 export class CartItemComponent implements OnInit {
   @Input() cartItem?: CartItem;
+  @Output() onCartItemQuantityChange = new EventEmitter<number>();
+  @Output() onCartItemDelete = new EventEmitter<void>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onQuantityChange(quantity: number): void {
+    this.onCartItemQuantityChange.emit(quantity);
+  }
+
+  onDeleteClick(): void {
+    this.onCartItemDelete.emit();
+  }
 }

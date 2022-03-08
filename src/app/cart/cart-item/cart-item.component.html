@@ -13,6 +13,11 @@
       }}</span>
     </div>
 
-    <app-cart-item-form [cartItem]="cartItem"></app-cart-item-form>
+    <app-cart-item-form
+      [index]="cartItem.product.id"
+      [quantity]="cartItem.quantity"
+      (onCartItemQuantityChange)="onQuantityChange($event)"
+      (onCartItemDelete)="onDeleteClick()"
+    ></app-cart-item-form>
   </div>
 </ng-container>
