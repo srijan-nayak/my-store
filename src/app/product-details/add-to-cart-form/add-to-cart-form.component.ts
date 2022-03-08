@@ -12,9 +12,21 @@ export class AddToCartFormComponent implements OnInit {
   quantity = 1;
   isCartItemAdded = false;
 
+  readonly selectOptionValues: number[] = Array(10)
+    .fill(0)
+    .map((_, i) => i + 1);
+
   constructor(private cartService: CartService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.product) {
+      const foundCartItem = this.cartService.getCartItem(this.product.id);
+      if (foundCartItem) {
+        this.quantity = foundCartItem.quantity;
+        this.isCartItemAdded = true;
+      }
+    }
+  }
 
   onSubmit(): void {
     if (this.product) {
