@@ -22,7 +22,7 @@ const routes: Routes = [
     path: 'order-placed',
     component: OrderPlacedComponent,
   },
-  { path: '', redirectTo: 'products', pathMatch: 'full' },
+  { path: '**', redirectTo: 'products' },
 ];
 
 @NgModule({
