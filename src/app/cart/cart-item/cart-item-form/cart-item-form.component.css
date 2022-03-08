@@ -15,12 +15,11 @@ label {
 }
 
 select {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
+  background: none;
+  border: 2px solid var(--primary-color);
   border-radius: var(--border-radius);
-  font-size: 1.4rem;
-  padding: 0.3em;
+  font-size: 1.2rem;
+  padding: 0.1em;
 }
 
 select:hover {
