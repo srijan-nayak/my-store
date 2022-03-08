@@ -24,10 +24,15 @@ export class CartService {
       .reduce((prev, current) => prev + current, 0);
   }
 
-  updateCart(product: Product, quantity: number): void {
-    const foundProduct = this._cartItems.find(
-      (cartItem) => cartItem.product.id === product.id
+  getCartItem(productId: number): CartItem | null {
+    const foundCartItem = this._cartItems.find(
+      ({ product }) => product.id === productId
     );
+    return foundCartItem ? foundCartItem : null;
+  }
+
+  updateCart(product: Product, quantity: number): void {
+    const foundProduct = this.getCartItem(product.id);
     if (foundProduct) {
       foundProduct.quantity = quantity;
     } else {
