@@ -24,11 +24,8 @@ export class CartService {
       .reduce((prev, current) => prev + current, 0);
   }
 
-  getCartItem(productId: number): CartItem | null {
-    const foundCartItem = this._cartItems.find(
-      ({ product }) => product.id === productId
-    );
-    return foundCartItem ? foundCartItem : null;
+  getCartItem(productId: number): CartItem | undefined {
+    return this._cartItems.find(({ product }) => product.id === productId);
   }
 
   updateCart(product: Product, quantity: number): void {

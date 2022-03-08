@@ -1,12 +1,27 @@
 <form (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="quantity">Quantity: </label>
-    <select name="quantity" id="quantity" [(ngModel)]="quantity">
+    <select
+      name="quantity"
+      id="quantity"
+      [(ngModel)]="quantity"
+      (ngModelChange)="onChange()"
+    >
       <option *ngFor="let value of selectOptionValues" [value]="value">
         {{ value }}
       </option>
     </select>
   </div>
-  <button type="submit">Add to cart</button>
-  <p class="message--success" *ngIf="isCartItemAdded">Item added to cart!</p>
+  <button type="submit">
+    <ng-container *ngIf="!(isButtonClicked || wasItemInCart); else elseBlock">
+      Add to cart
+    </ng-container>
+    <ng-template #elseBlock>Update quantity</ng-template>
+  </button>
+  <p class="message--success" *ngIf="isButtonClicked">
+    <ng-container *ngIf="!wasItemInCart; else elseBlock">
+      Item added to cart!
+    </ng-container>
+    <ng-template #elseBlock>Item quantity updated!</ng-template>
+  </p>
 </form>

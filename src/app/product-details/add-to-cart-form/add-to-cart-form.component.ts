@@ -1,6 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Product } from '../../services/product.service';
-import { CartService } from '../../services/cart.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-add-to-cart-form',
@@ -8,30 +6,35 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./add-to-cart-form.component.css'],
 })
 export class AddToCartFormComponent implements OnInit {
-  @Input() product?: Product;
-  quantity = 1;
-  isCartItemAdded = false;
+  @Input() quantity?: number | string;
+  @Output() onFormSubmit = new EventEmitter<number>();
+
+  wasItemInCart = false;
+  isButtonClicked = false;
 
   readonly selectOptionValues: number[] = Array(10)
     .fill(0)
     .map((_, i) => i + 1);
 
-  constructor(private cartService: CartService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    if (this.product) {
-      const foundCartItem = this.cartService.getCartItem(this.product.id);
-      if (foundCartItem) {
-        this.quantity = foundCartItem.quantity;
-        this.isCartItemAdded = true;
-      }
+    if (this.quantity) {
+      this.wasItemInCart = true;
+    } else {
+      this.quantity = 1;
+    }
+  }
+
+  onChange(): void {
+    if (this.isButtonClicked) {
+      this.isButtonClicked = false;
+      this.wasItemInCart = true;
     }
   }
 
   onSubmit(): void {
-    if (this.product) {
-      this.cartService.updateCart(this.product, this.quantity);
-      this.isCartItemAdded = true;
-    }
+    this.onFormSubmit.emit(+this.quantity!);
+    this.isButtonClicked = true;
   }
 }

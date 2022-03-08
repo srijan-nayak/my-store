@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Product, ProductService } from '../services/product.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,10 +12,13 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductDetailsComponent implements OnInit, OnDestroy {
   product?: Product;
   productSubscription?: Subscription;
+  quantityInCart?: number;
+
   isProductFound = true;
 
   constructor(
     private productService: ProductService,
+    private cartService: CartService,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -25,10 +29,22 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       .subscribe((product) => {
         this.product = product;
         this.isProductFound = this.product !== undefined;
+        if (this.product) {
+          const foundCartItem = this.cartService.getCartItem(this.product.id);
+          if (foundCartItem) {
+            this.quantityInCart = foundCartItem.quantity;
+          }
+        }
       });
   }
 
   ngOnDestroy() {
     this.productSubscription?.unsubscribe();
+  }
+
+  updateCart(quantity: number) {
+    if (this.product) {
+      this.cartService.updateCart(this.product, quantity);
+    }
   }
 }

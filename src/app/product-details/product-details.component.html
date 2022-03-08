@@ -7,7 +7,10 @@
       <p>{{ product.price | currency }}</p>
     </div>
 
-    <app-add-to-cart-form [product]="product"></app-add-to-cart-form>
+    <app-add-to-cart-form
+      [quantity]="quantityInCart"
+      (onFormSubmit)="updateCart($event)"
+    ></app-add-to-cart-form>
 
     <div class="details__description">
       <h3>Description</h3>
